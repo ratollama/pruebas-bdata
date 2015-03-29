@@ -13,6 +13,6 @@ Código de ejemplo programado, a lo vieja escuela, de tal forma que separe el pr
 Código de ejemplo ocupando múltiples hilos mediante OpenMP
 ### Resultados
 Al momento de correr en mi computadora estos son los resultados:
-*Un hilo: 0:37.81
-*Multiples hilos: 0:16.48
-*OpenMP: 0:16.57
+* Un hilo: 0:37.81
+* Multiples hilos: 0:16.48
+* OpenMP: 0:16.57
