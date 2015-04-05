@@ -1,0 +1,5 @@
+<inputdata>
+	<row Id="1" DataID="10" Text="A" />
+	<row Id="2" DataID="11" Text="B" Parent="10" />
+	<row Id="3" DataID="12" Text="C" Parent="10" />
+</inputdata>

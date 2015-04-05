@@ -1,0 +1,1 @@
+g++ -I/usr/include/libxml2/ -lxml2 reader.cpp
