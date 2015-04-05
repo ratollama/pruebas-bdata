@@ -1,0 +1,157 @@
+package modelo;
+
+message RecuentoPalabras{
+	required string palabra = 1;
+	optional int32 repeticiones = 2 [default = 1];
+}
+message Link{
+	enum LinkType{
+		LINKED = 1;
+		DUPLICATE = 2;
+	}
+	required int64 creation_date = 1;
+	optional Post related_post = 2;
+	required LinkType type = 3;
+}
+message Badge{
+	required string name = 1;
+	required int64 date = 2;
+}
+message User{
+	
+	required int32 views = 1;
+	required int32 reputation = 2;
+	required int32 up_votes = 3;
+	required int32 down_votes = 4;
+	
+	
+	required int64 creation_date = 16;
+	required string display_name = 9;
+	
+	required int64 last_access_date = 10;
+	
+	optional string web_site_url = 15;
+	optional string profile_image_url = 14;
+	
+	optional string location = 12;
+	
+	required string about_me = 8;
+	
+	required int32 account_id = 13;
+	required int32 age = 11;
+	
+	repeated Badge badges = 7;
+	
+}
+message UserCollection{
+	repeated User usuarios = 1;
+}
+message Comment{
+	required User user = 1;
+	required int32 score = 2;
+	repeated RecuentoPalabras text = 3;
+	required int64 creation_date = 4;
+}
+message Vote{
+	enum VoteType{
+		ACCEPTED_BY_ORIGINATOR = 1;
+		UP_MOD = 2;
+		DOWN_MOD = 3;
+		OFFENCIVE = 4;
+		FAVORITE = 5;
+		CLOSE = 6;
+		REOPEN = 7;
+		BOUNTY_START = 8;
+		BOUNTY_CLOSE = 9;
+		DELETION = 10;
+		UNDELETION = 11;
+		SPAM = 12;
+		MODERATOR_REVIEW = 15;
+		APPROVE_EDIT_SUGGESTION = 16;
+	}
+	required int32 bounty_amount = 1;
+	required User user = 2;
+	required VoteType type = 3;
+	required int64 creation_date = 4;
+}
+message History{
+	enum HistoryType{
+		INITIAL_TILE = 1;
+		INITIAL_BODY = 2;
+		INITIAL_TAGS = 3;
+		EDIT_TITLE = 4;
+		EDIT_BODY = 5;
+		EDIT_TAGS = 6;
+		ROLLBACK_TITLE = 7;
+		ROLLBACK_BODY = 8;
+		ROLLBACK_TAGS = 9;
+		POST_CLOSED = 10;
+		POST_REOPENED = 11;
+		POST_DELETED = 12;
+		POST_UNDELETED = 13;
+		POST_LOCKED = 14;
+		POST_UNLOCKED = 15;
+		COMMUNITY_OWNED = 16;
+		POST_MIGRATED = 17;
+		QUESTION_MERGED = 18;
+		QUESTION_PROTECTED = 19;
+		QUESTION_UPROTECTED = 20;
+		POST_DISASSOCIED = 21;
+		QUESTION_UNMERGED = 22;
+		SUGGESTED_EDIT_APPLIED = 24;
+		POST_TWEETED = 25;
+		COMMENT_DISCUSSION_MOVED_TO_CHAT = 31;
+		POST_NOTICE_ADDED = 33;
+		POST_NOTICE_REMOVED = 34;
+		POST_MIGRATED_AWAY = 35;
+		POST_MIGRATED_HERE = 36;
+		POST_MERGE_SOURCE = 37;
+		POST_MERGE_DESTINATION = 38;
+		
+	}
+	required User user = 1;
+	required string revision = 2;
+	required int64 creation_date = 3;
+	required HistoryType type = 4;
+	required RecuentoPalabras comment = 5;
+	required RecuentoPalabras text = 6;
+}
+message Post{
+	enum PostType{
+		QUESTION = 1;
+		ANSWER = 2;
+		ORPHANED_TAG_WIKI = 3;
+		TAG_WIKI_EXCERPT = 4;
+		TAG_WIKI = 5;
+		MODERATOR_NOMINATION = 6;
+		WIKI_PLACEHOLDER = 7;
+	}
+	message Stats{
+		required int32 score = 1;
+		required int32 answer_count = 2;
+		required int32 comment_count = 3;
+		required int32 favorite_count = 4;
+		required int32 view_count = 5;
+	}
+	
+	optional Post parent = 15;
+	optional Post accepted_answer = 1;
+	required User owner = 13;
+	optional User last_editor = 17;
+	required PostType type = 3;
+	required int64 creation_date = 4;
+	repeated RecuentoPalabras body = 6;
+	required int32 community_owned_date = 16;
+	optional int64 closed_date = 5;
+	optional int64 last_edit_date = 14;
+	optional int64 last_activity_date = 18;
+	repeated RecuentoPalabras title = 7;
+	required Stats stats = 2;
+	
+	repeated Link links = 8;
+	repeated Comment comments = 9;
+	repeated string tags = 10;
+	repeated Vote votes = 11;
+	repeated History history = 12;
+
+}
