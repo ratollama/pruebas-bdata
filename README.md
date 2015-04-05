@@ -18,10 +18,11 @@ Al momento de correr en mi computadora estos son los resultados:
 
 ## Serialización
 Se realizan pruebas sobre los tiempos y uso de memoria para dos librerías.
-Los datos tomados para [des]serializar son los usuarios de askUbuntu-
+Los datos tomados para [des]serializar son los usuarios de AskUbuntu.
 ### Boost Serialzation
 Librería de boost para serializar objetos.
 Se realiza una serialización ocupando el formato binario.
+
 Pros:
 * Se pueden serializar estructuras de la std
 
@@ -30,6 +31,7 @@ Contra:
 
 ### Google protobuf
 Librería de google para la transmición de mensajes.
+
 Pros:
 * Diseño limpio de las estructuras a serializar
 * API de fácil uso
@@ -38,12 +40,13 @@ Contra:
 * No se pueden serializar estrucuras de la std
 
 ### Resultados
+El archivo original a serializar (Users.xml) tiene un peso de 76.1 MB  y 251351 registros
 #### Serialización
 
-Bibliotecta | Tiempo | Memoria
-------------|--------|---------
-Boost Serialization | 00:03.58 | 954188
-Protobuf | 00:03.35 | 968468
+Bibliotecta | Tiempo | Memoria | Tamaño del archivo
+------------|--------|---------|-------------------
+Boost Serialization | 00:03.58 | 954188 | 44872861
+Protobuf | 00:03.35 | 968468 | 33326860
 
 #### Des-Serialización
 En el programa se incluye un pequeño calculo por sobre todos los elementos cargados
