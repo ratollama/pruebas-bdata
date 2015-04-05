@@ -41,6 +41,7 @@ Contra:
 #### Serialización
 
 Bibliotecta | Tiempo | Memoria
+------------|--------|---------
 Boost Serialization | 00:03.58 | 954188
 Protobuf | 00:03.35 | 968468
 
@@ -48,5 +49,6 @@ Protobuf | 00:03.35 | 968468
 En el programa se incluye un pequeño calculo por sobre todos los elementos cargados
 
 Bibliotecta | Tiempo | Memoria
+------------|--------|---------
 Boost Serialization | 0:00.29 | 86260
 Protobuf | 0:00.27  | 124500
